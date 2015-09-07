@@ -1,5 +1,9 @@
-FROM sameersbn/ubuntu:14.04.20150825
-MAINTAINER sameer@damagehead.com
+# FROM sameersbn/ubuntu:14.04.20150825
+# MAINTAINER sameer@damagehead.com
+
+FROM debian:jessie
+
+MAINTAINER karlsson@alienwebshop.com
 
 ENV DATA_DIR=/data \
     BIND_USER=bind \
@@ -9,7 +13,7 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
  && apt-get install -y bind9 perl libnet-ssleay-perl openssl \
       libauthen-pam-perl libpam-runtime libio-pty-perl \
-      apt-show-versions python \
+      apt-show-versions python wget \
  && wget "http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_all.deb" -P /tmp/ \
  && dpkg -i /tmp/webmin_${WEBMIN_VERSION}_all.deb \
  && rm -rf /tmp/webmin_${WEBMIN_VERSION}_all.deb \
