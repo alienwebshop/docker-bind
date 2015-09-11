@@ -1,8 +1,4 @@
-# FROM sameersbn/ubuntu:14.04.20150825
-# MAINTAINER sameer@damagehead.com
-
 FROM debian:jessie
-
 MAINTAINER karlsson@alienwebshop.com
 
 ENV DATA_DIR=/data \
